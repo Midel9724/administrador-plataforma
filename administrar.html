@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <nav class="glass-navbar">
+    <h2 class="nav-title">Administración de Cursos</h2>
+    <button class="btn-logout" onclick="window.location.href='index.html'">Salir</button>
+</nav>
+
+    <div class="admin-section">
+        <h3>Alta de Profesor</h3>
+        <form id="form-teacher">
+            <input type="text" id="t-name" placeholder="Nombre" required>
+            <input type="email" id="t-email" placeholder="Correo" required>
+            <input type="text" id="t-specialty" placeholder="Especialidad" required>
+            <button type="submit">Guardar Profesor</button>
+        </form>
+    </div>
+
+    <div class="admin-section">
+        <h3>Alta de Curso</h3>
+        <form id="form-course">
+            <input type="text" id="c-title" placeholder="Título del Curso" required>
+            <select id="c-teacher" required><option value="">Selecciona Profesor...</option></select>
+            <div id="lessons-container">
+                <h4>Videos</h4>
+                <div class="lesson-input"><input type="text" class="l-title" placeholder="Título Video"><input type="text" class="l-url" placeholder="URL"></div>
+            </div>
+            <button type="button" id="add-lesson-btn" style="background:#27ae60">+ Video</button>
+            <button type="submit" style="display:block; width:100%; margin-top:10px">Publicar Curso</button>
+        </form>
+    </div>
+
+    <div class="admin-section">
+        <h3>Reportes y Control</h3>
+        <button onclick="cargarReportes()">🔄 Actualizar</button>
+        <div id="reports-container" style="margin-top:20px"></div>
+    </div>
+
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <h3>Editar Curso</h3>
+            <form id="form-edit-course">
+                <input type="hidden" id="edit-c-id">
+                <input type="text" id="edit-c-title" style="width:100%">
+                <select id="edit-c-teacher" style="width:100%"></select>
+                <div id="edit-lessons-list"></div>
+                <button type="button" onclick="agregarInputVideoModal('', '')" style="background:#27ae60">+ Video</button>
+                <button type="submit" style="width:100%; background:#2c3e50">Guardar Cambios</button>
+                <button type="button" onclick="cerrarModalEditar()" style="background:#95a5a6; width:100%">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="administrar.js"></script>
+</body>
+</html>
