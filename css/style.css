@@ -433,3 +433,85 @@ tr:hover td {
     box-shadow: 0 8px 15px rgba(255, 75, 75, 0.3) !important;
     border-color: #ff4b4b !important;
 }
+/* =========================================
+   9. RESPONSIVE DESIGN (MÓVILES Y TABLETS)
+========================================= */
+
+/* Pantallas medianas y Tablets (hasta 768px) */
+@media (max-width: 768px) {
+    /* Reducir márgenes y paddings para aprovechar el espacio */
+    .admin-container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .admin-section, 
+    .auth-container, 
+    .modal-content {
+        padding: 25px 20px;
+    }
+
+    /* Ajustar la barra de navegación */
+    nav, .glass-navbar {
+        padding: 15px 20px;
+    }
+
+    /* Ajustar tamaños de fuente para que no saturen la pantalla */
+    .logo, .glass-navbar .nav-title {
+        font-size: 1.3rem;
+    }
+
+    #form-title, .admin-section h3, .modal-content h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Tablas adaptables: Permite scroll horizontal sin romper la página */
+    .table-responsive-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Ajustar la lista de videos/lecciones para que no se aprieten */
+    .lesson-input-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lesson-input-item button {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+
+/* Pantallas pequeñas y Teléfonos (hasta 480px) */
+@media (max-width: 480px) {
+    /* Apilar la barra de navegación si hay muy poco espacio */
+    .glass-navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .glass-navbar .btn-logout {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Reducir aún más el modal y la caja de login */
+    .auth-container {
+        padding: 20px 15px;
+        border-radius: 16px;
+    }
+
+    .modal-content {
+        padding: 20px 15px;
+    }
+
+    /* Hacer que la mayoría de los botones ocupen todo el ancho para ser fáciles de tocar */
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
